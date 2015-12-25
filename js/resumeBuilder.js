@@ -194,3 +194,7 @@ $(document).click(function(loc) {
 $("#menu_button").on("click", function() {
     $("#menu").toggle("slow");
 });
+
+$("#menu").on("click", function() {
+    $("#menu").toggle("slow");
+});
