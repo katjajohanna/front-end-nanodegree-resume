@@ -237,7 +237,11 @@ span {
 }
 
 .menu_button svg {
-    width: 32px;
-    fill: #e0e0e0;
-    float: right;
-  }
+  width: 32px;
+  fill: #e0e0e0;
+  float: right;
+}
+
+.anchor {
+  margin: 0;
+}
