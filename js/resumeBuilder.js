@@ -6,38 +6,42 @@ var bio = {
     "name": "Johanna Pelkonen",
     "role": "Software developer",
     "contacts": {
+        "mobile": "010 123 123",
         "email": "katjajohanna@outlook.com",
         "github": "katjajohanna",
         "twitter": "@katjajohanna2",
         "location": "Jyväskylä, Finland"
     },
-    "picture_url": "https://media.licdn.com/media/AAEAAQAAAAAAAAWCAAAAJDg4MDQyZWU3LWI4NTQtNGM0ZC1hZDVlLWVlYTAxOTllOTE2Nw.jpg",
-    "welcome_msg": "Nice to meet you!",
-    "skills": ["software developer", "human person", "code passionist", "sunshine", "code readability enhancer", "architect-to-be"]
+    "welcomeMessage": "Nice to meet you!",
+    "skills": ["software developer", "human person", "code passionist", "sunshine", "code readability enhancer", "architect-to-be"],
+    "biopic": "https://media.licdn.com/media/AAEAAQAAAAAAAAWCAAAAJDg4MDQyZWU3LWI4NTQtNGM0ZC1hZDVlLWVlYTAxOTllOTE2Nw.jpg"
 };
 
 bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture_url);
-    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcome_msg);
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-    $("#header").prepend(formattedBioPic);
-    $("#header").prepend(formattedName);
-    $("#header").append(formattedRole);
-    $("#header").append(formattedWelcomeMsg);
+    $("#header")
+        .prepend(formattedBioPic)
+        .prepend(formattedName)
+        .append(formattedRole)
+        .append(formattedWelcomeMsg);
 
     $("#header").append(HTMLcontactStart);
-    $(".contact-entries, #footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-    $(".contact-entries, #footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-    $(".contact-entries, #footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-    $(".contact-entries, #footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+    $(".contact-entries, #footerContacts")
+        .append(HTMLemail.replace("%data%", bio.contacts.email))
+        .append(HTMLtwitter.replace("%data%", bio.contacts.twitter))
+        .append(HTMLgithub.replace("%data%", bio.contacts.github))
+        .append(HTMLlocation.replace("%data%", bio.contacts.location));
 
     if (bio.skills.length > 0) {
         $("#header").append(HTMLskillsStart);
-        for (var index in bio.skills) {
-            $("#skills").append(HTMLskills.replace("%data%", bio.skills[index]));
-        }
+
+        bio.skills.forEach(function(item) {
+            $("#skills").append(HTMLskills.replace("%data%", item));
+        });
     }
 };
 
@@ -124,31 +128,31 @@ var education = {
         {
             "title": "Cryptography I",
             "school": "Stanford University (Coursera)",
-            "dates": "Oct 2015",
+            "date": "Oct 2015",
             "url": "https://www.coursera.org/course/crypto"
         },
         {
             "title": "Introduction to Computer Science and Programming Using Python",
             "school": "MITx (EdX)",
-            "dates": "Mar 2015",
+            "date": "Mar 2015",
             "url": "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-6"
         },
         {
             "title": "Introduction to Functional Programming",
             "school": "DelftX (EdX)",
-            "dates": "Dec 2014",
+            "date": "Dec 2014",
             "url": "https://www.edx.org/course/introduction-functional-programming-delftx-fp101x-0"
         },
         {
             "title": "Introduction to Linux ",
             "school": "LinuxFoundationX (EdX)",
-            "dates": "Dec 2014",
+            "date": "Dec 2014",
             "url": "https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-2"
         },
         {
             "title": "Engineering Software as a Service",
             "school": "BerkeleyX (EdX)",
-            "dates": "Jun 2014",
+            "date": "Jun 2014",
             "url": "https://www.edx.org/course/engineering-software-service-saas-part-1-uc-berkeleyx-cs169-1x"
         }
 ]};
